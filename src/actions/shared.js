@@ -8,7 +8,6 @@ export function handleInitialData () {
         .then(({ users, question }) => {
           dispatch(receiveUsers(users))
           dispatch(receiveQuestions(question))
-
         })
     }
   } 
