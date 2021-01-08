@@ -1,37 +1,45 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { handleInitialData } from '../actions/shared'
-
+import { setAuthedUser, clearAuthedUser } from '../actions/authedUser';
 
 
 class Login extends Component {
 
-  state = {
-    loading:false
+  state={
+    userId:null
   }
 
-  componentDidMount() {
-    setTimeout(function(){ this.setState({loading:true}) }, 1000);
-    // this.setState({loading:true})
+  handlechange = (e) =>{
+    e.preventDefault();
+    // console.log(e.target.value)
+    this.setState({userId:e.target.value})
+    // console.log(this.state, 'State')
+    this.props.dispatch(setAuthedUser(e.target.value))
   }
   
   render() {
+    const {users,authedUser} = this.props 
+    const {userId} = this.state
+    const selected = userId ? userId: -1
     return (
-      <div>
-        Login
-        {console.log(this.props.users)}
-      </div>
+      <Fragment>
+        <label>Choose a user:</label>
+        <select name="users" value={selected} onChange={this.handlechange}>
+          <option value="-1" disabled>Select user...</option>
+          {Object.keys(users).map((id)=>
+          <option key={id} value={users[id].id}>{users[id].name}</option>
+          )}
+        </select>
+      </Fragment>
     )
   }
 }
-
-function mapStateToProps({ authedUser,users }){
+function mapStateToProps({ users, authedUser }){
   return{
+      users,
       authedUser,
-      users
   }
 
 }
-
 
 export default connect(mapStateToProps)(Login)
