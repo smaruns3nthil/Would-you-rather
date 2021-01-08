@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Login from './login'
 import Home from './home'
 import Nav from './nav'
+import Leader from './leader'
+import Add from './newQuestion'
 
 class App extends Component {
 
@@ -26,7 +28,9 @@ class App extends Component {
             <Fragment>
               <Nav/>
               <div>
-                <Route path='/' exact component={Home} />
+                <Route path='/' exact component={Home}/>
+                <Route path='/add' component={Add}/>
+                <Route path='/leader' exact component={Leader}/>
               </div>
             </Fragment>
           )}
