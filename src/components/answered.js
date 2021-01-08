@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 
-class Question extends Component {
+class Answered extends Component {
   
   render() {
     return (
       <div>
-        Question Card
+        Answered View
       </div>
     )
   }
@@ -21,4 +21,4 @@ function mapStateToProps({authedUser}){
 }
 
 
-export default connect(mapStateToProps)(Question)
+export default connect(mapStateToProps)(Answered)

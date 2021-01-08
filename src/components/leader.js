@@ -14,7 +14,7 @@ class Leader extends Component {
             {usersArr.map((user)=>(
               <li key={user.id}>
                 <div>{user.name}</div>
-                <img src={`${user.avatarURL}`}/>
+                <img alt='avatar' src={`${user.avatarURL}`}/>
                 <div>
                   Number of answered questions {Object.keys(user.answers).length}
                 </div>

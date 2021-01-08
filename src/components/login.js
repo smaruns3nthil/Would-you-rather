@@ -18,7 +18,7 @@ class Login extends Component {
   }
   
   render() {
-    const {users,authedUser} = this.props 
+    const {users} = this.props 
     const {userId} = this.state
     const selected = userId ? userId: -1
     return (
