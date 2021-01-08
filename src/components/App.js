@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -23,10 +23,12 @@ class App extends Component {
               </div>
             )} />
           ):(
-            <div>
-              <Route path='/' exact component={Home} />
-              <Route path='/nav' component={Nav} />
-            </div>
+            <Fragment>
+              <Nav/>
+              <div>
+                <Route path='/' exact component={Home} />
+              </div>
+            </Fragment>
           )}
         </div>
       </Router>
