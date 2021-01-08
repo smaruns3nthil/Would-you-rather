@@ -1,8 +1,13 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import { clearAuthedUser } from '../actions/authedUser';
 
 class Nav extends Component {
+
+  handleClick = (e) =>{
+    this.props.dispatch(clearAuthedUser(this.props.authedUser))
+  } 
   
   render() {
     return (
@@ -24,7 +29,7 @@ class Nav extends Component {
           </NavLink>
         </li>
         <li>{this.props.authedUser}</li>
-        <li>Log out</li>
+        <li onClick={this.handleClick}>Log out</li>
       </ul>
     </nav>
     )

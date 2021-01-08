@@ -9,7 +9,7 @@ class Login extends Component {
     userId:null
   }
 
-  handlechange = (e) =>{
+  handleChange = (e) =>{
     e.preventDefault();
     // console.log(e.target.value)
     this.setState({userId:e.target.value})
@@ -24,7 +24,7 @@ class Login extends Component {
     return (
       <Fragment>
         <label>Choose a user:</label>
-        <select name="users" value={selected} onChange={this.handlechange}>
+        <select name="users" value={selected} onChange={this.handleChange}>
           <option value="-1" disabled>Select user...</option>
           {Object.keys(users).map((id)=>
           <option key={id} value={users[id].id}>{users[id].name}</option>
