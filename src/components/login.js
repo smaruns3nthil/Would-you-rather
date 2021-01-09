@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser';
-
+import { withRouter } from 'react-router-dom'
 
 class Login extends Component {
 
@@ -15,6 +15,10 @@ class Login extends Component {
     this.setState({userId:e.target.value})
     // console.log(this.state, 'State')
     this.props.dispatch(setAuthedUser(e.target.value))
+    if(this.props.logout)
+    {
+      this.props.history.push(`/`)
+    }
   }
   
   render() {
@@ -34,11 +38,12 @@ class Login extends Component {
     )
   }
 }
-function mapStateToProps({ users }){
+function mapStateToProps({ users,logout }){
   return{
       users,
+      logout
   }
 
 }
 
-export default connect(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login))

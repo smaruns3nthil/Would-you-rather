@@ -51,7 +51,10 @@ class Unanswered extends Component {
               {question.optionTwo.text}
             </label>
           </div>
-          <button type="submit">
+          <button 
+          type="submit"
+          disabled ={this.state.selectedOption === ''}
+          >
             Submit
           </button>
         </form>

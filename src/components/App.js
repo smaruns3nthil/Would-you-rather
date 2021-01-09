@@ -22,37 +22,42 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar />
-          <div>
-            {this.props.authedUser === null ?(
-              <Route  render={()=>(
-                <div>
-                  <Login/>
-                </div>
-              )} />
-            ):(
-              <Fragment>
-                <Nav/>
-                <div>
-                  <Switch>
-                    <Route path='/' exact component={Home}/>
-                    <Route path='/question/:id'  component={QuestionDetail}/>
-                    <Route path='/add' component={Add}/>
-                    <Route path='/leader' component={Leader}/>
-                    <Route path='/:error' component={Err}/>
-                  </Switch>
-                </div>
-              </Fragment>
-            )}
-          </div>
+          {this.props.display !== true
+          ? null
+          :
+            <div>
+              {this.props.authedUser === null ?(
+                <Route  render={()=>(
+                  <div>
+                    <Login/>
+                  </div>
+                )} />
+              ):(
+                <Fragment>
+                  <Nav/>
+                  <div>
+                    <Switch>
+                      <Route path='/' exact component={Home}/>
+                      <Route path='/question/:id'  component={QuestionDetail}/>
+                      <Route path='/add' component={Add}/>
+                      <Route path='/leader' component={Leader}/>
+                      <Route path='/:error' component={Err}/>
+                    </Switch>
+                  </div>
+                </Fragment>
+              )}
+            </div>
+          }
         </Fragment>
       </Router>
     )
   }
 }
 
-function mapStateToProps({ authedUser }){
+function mapStateToProps({ authedUser,display }){
   return{
-      authedUser:authedUser
+      authedUser,
+      display
   }
 
 }

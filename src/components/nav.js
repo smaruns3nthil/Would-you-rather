@@ -2,11 +2,13 @@ import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { clearAuthedUser } from '../actions/authedUser';
+import {handleLogout} from '../actions/logout'
 
 class Nav extends Component {
 
   handleClick = (e) =>{
     this.props.dispatch(clearAuthedUser(this.props.authedUser))
+    this.props.dispatch(handleLogout(true))
   } 
   
   render() {

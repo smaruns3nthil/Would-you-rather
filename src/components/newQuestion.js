@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {handleAddQuestion} from '../actions/shared'
-import { Redirect } from 'react-router-dom'
+import { Redirect,withRouter } from 'react-router-dom'
 
 class Add extends Component {
   state ={
@@ -38,13 +38,15 @@ class Add extends Component {
       optionTwo: '',
       toHome: true,
     }))
+    this.props.history.push(`/`)
   }
 
   render() {
     const {optionOne,optionTwo,toHome}=this.state
-    if (toHome === true) {
-      return <Redirect to='/' />
-    }
+    console.log("test",this.state)
+    // if (toHome === true) {
+    //   return <Redirect to='/' />
+    // }
 
     return (
       <div>
@@ -65,7 +67,7 @@ class Add extends Component {
           <br/>
           <button
             type='submit'
-            disabled={ optionOne=== '' && optionTwo === ''}>
+            disabled={ optionOne=== '' || optionTwo === ''}>
               Submit
           </button>
         </form>
@@ -82,4 +84,4 @@ function mapStateToProps({authedUser}){
 }
 
 
-export default connect(mapStateToProps)(Add)
+export default withRouter(connect(mapStateToProps)(Add))
