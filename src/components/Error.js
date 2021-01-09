@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 
-class Error extends Component {
+class Err extends Component {
   
   render() {
     return (
@@ -21,4 +21,4 @@ function mapStateToProps({authedUser}){
 }
 
 
-export default connect(mapStateToProps)(Error)
+export default connect(mapStateToProps)(Err)
