@@ -37,7 +37,7 @@ function mapStateToProps({users}){
     const usersArr = Object.values(users)
     usersArr.map((user)=>user.score=Object.keys(user.answers).length+user.questions.length)
     return{
-      usersArr:usersArr.sort( (a, b) => b.totalScore - a.totalScore)
+      usersArr:usersArr.sort( (a, b) => b.score - a.score)
     }
 }
 
