@@ -11,9 +11,7 @@ class Login extends Component {
 
   handleChange = (e) =>{
     e.preventDefault();
-    // console.log(e.target.value)
     this.setState({userId:e.target.value})
-    // console.log(this.state, 'State')
     this.props.dispatch(setAuthedUser(e.target.value))
     if(this.props.logout)
     {

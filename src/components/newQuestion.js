@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {handleAddQuestion} from '../actions/shared'
-import { Redirect,withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 class Add extends Component {
   state ={
     optionOne:'',
     optionTwo:'',
-    toHome:false
   }
   handleOptionOne = (e) => {
     const optionOne = e.target.value
@@ -36,17 +35,12 @@ class Add extends Component {
     this.setState(() => ({
       optionOne: '',
       optionTwo: '',
-      toHome: true,
     }))
     this.props.history.push(`/`)
   }
 
   render() {
-    const {optionOne,optionTwo,toHome}=this.state
-    console.log("test",this.state)
-    // if (toHome === true) {
-    //   return <Redirect to='/' />
-    // }
+    const {optionOne,optionTwo}=this.state
 
     return (
       <div>

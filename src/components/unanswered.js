@@ -15,7 +15,6 @@ class Unanswered extends Component {
   }
   handleSubmit = (e)=>{
     e.preventDefault()
-    // console.log(this.state.selectedOption)
     const answer =this.state.selectedOption
     const {dispatch,question}=this.props
     dispatch(handleAddAnswer(

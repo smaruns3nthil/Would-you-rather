@@ -26,7 +26,7 @@ class Question extends Component {
         {filtered ? 
           <Answered question={question} authedUser={authedUser}/>
           :
-          <Unanswered question={question} authedUser={authedUser}/>}
+          <Unanswered question={question}/>}
       </div>
     )
   }
