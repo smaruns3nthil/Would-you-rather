@@ -17,7 +17,7 @@ class Home extends Component {
       const filtered = (
         question.optionOne.votes.indexOf(authedUser) > -1 ||
         question.optionTwo.votes.indexOf(authedUser) > -1
-    );
+    )
     return this.state.answerView ? filtered : !filtered
     })
     return (

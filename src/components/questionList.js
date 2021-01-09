@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import { Link } from 'react-router-dom'
 
 class Question extends Component {
 
@@ -21,7 +21,7 @@ class Question extends Component {
               <img alt='avatar' src={`${users[question.author].avatarURL}`}/>
               <h3>Would you rather</h3>
               <p>{question.optionOne.text}</p>
-              <button onClick={this.handleClick}>{text}</button>
+              <Link to={`/question/${question.id}`} >{text}</Link>
             </li>
           ))}
         </ul>
