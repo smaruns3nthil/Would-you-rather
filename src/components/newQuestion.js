@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {handleAddQuestion} from '../actions/question'
+import {handleAddQuestion} from '../actions/shared'
 import { Redirect } from 'react-router-dom'
 
 class Add extends Component {

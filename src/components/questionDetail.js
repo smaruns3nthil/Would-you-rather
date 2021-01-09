@@ -23,7 +23,10 @@ class Question extends Component {
       <div>
         <h3>{question.author} ask:</h3>
         <img alt='avatar' src={`${users[question.author].avatarURL}`}/>
-        {filtered?<Answered/>:<Unanswered/>}
+        {filtered ? 
+          <Answered question={question} authedUser={authedUser}/>
+          :
+          <Unanswered question={question} authedUser={authedUser}/>}
       </div>
     )
   }

@@ -1,24 +1,63 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import {handleAddAnswer} from '../actions/shared'
 
 class Unanswered extends Component {
-  
+  state = {
+    selectedOption: ''
+  }
+  handleChange= (e) => {
+    const selectedOption = e.target.value
+
+    this.setState(() => ({
+      selectedOption
+    }))
+  }
+  handleSubmit = (e)=>{
+    e.preventDefault()
+    // console.log(this.state.selectedOption)
+    const answer =this.state.selectedOption
+    const {dispatch,question}=this.props
+    dispatch(handleAddAnswer(
+      question.id,
+      answer,
+    ))
+  }
   render() {
+    const {question}=this.props
     return (
       <div>
-        UnAnswered
+        <h3>Would you Rather?</h3>
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <label>
+              <input
+                type="radio"
+                value='optionOne'
+                checked={this.state.selectedOption === 'optionOne'}
+                onChange={this.handleChange}
+              />
+              {question.optionOne.text}
+            </label>
+          </div>
+          <div>
+            <label>
+              <input
+                type="radio"
+                value='optionTwo'
+                checked={this.state.selectedOption === 'optionTwo'}
+                onChange={this.handleChange}
+              />
+              {question.optionTwo.text}
+            </label>
+          </div>
+          <button type="submit">
+            Submit
+          </button>
+        </form>
       </div>
     )
   }
 }
 
-function mapStateToProps({authedUser}){
-    return{
-        authedUser:authedUser
-    }
-
-}
-
-
-export default connect(mapStateToProps)(Unanswered)
+export default connect()(Unanswered)
