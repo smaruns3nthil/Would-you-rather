@@ -21,7 +21,7 @@ class Question extends Component {
     )
     return (
       <div>
-        <h3>{question.author} ask:</h3>
+        <h3>{users[question.author].name} ask:</h3>
         <img alt='avatar' src={`${users[question.author].avatarURL}`}/>
         {filtered ? 
           <Answered question={question} authedUser={authedUser}/>

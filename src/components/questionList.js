@@ -17,7 +17,7 @@ class Question extends Component {
         <ul>
           {questions.map((question)=>(
             <li key={question.id}>
-              <h1>{question.author} asks</h1>
+              <h1>{users[question.author].name} asks</h1>
               <img alt='avatar' src={`${users[question.author].avatarURL}`}/>
               <h3>Would you rather</h3>
               <p>{question.optionOne.text}</p>

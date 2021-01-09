@@ -12,6 +12,7 @@ class Nav extends Component {
   } 
   
   render() {
+    const {authedUser,users} = this.props
     return (
       <nav>
       <ul>
@@ -30,16 +31,18 @@ class Nav extends Component {
             Leaderboard
           </NavLink>
         </li>
-        <li>{this.props.authedUser}</li>
+        <li>{users[authedUser].name}</li>
+        <img alt='avatar' src={`${users[authedUser].avatarURL}`}/>
         <li onClick={this.handleClick}>Log out</li>
       </ul>
     </nav>
     )
   }
 }
-function mapStateToProps({authedUser}){
+function mapStateToProps({authedUser,users}){
   return{
-      authedUser:authedUser
+      authedUser,
+      users,
   }
 
 }
