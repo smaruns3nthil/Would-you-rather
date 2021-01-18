@@ -32,18 +32,16 @@ class Login extends Component {
     return (
       <Fragment>
         <Container className="p-3">
-          <Jumbotron style={{ backgroundColor: 'rgb(236, 78, 15)', height: '35vh'}}>
+          <Jumbotron style={{  height: '50vh', marginTop:'100px'}}>
             <h1 className="header">Would You Rather !!!</h1>
             <h3 className='header'>Please Select User Name to Login</h3>
             <label className='header' style={{display: 'block'}}>Choose a user:</label>
             <select
             style={{
-              // color:'white',
-              position: 'absolute', 
-              left: '50%', 
-              minWidth: 120,
-              top: '22%',
-              transform: 'translate(-50%, -50%)'
+              display:'block',
+              margin:'15px auto',
+              padding:'5px',
+              width:'200px'
               }} 
             name="users" value={selected} onChange={this.handleChange}>
               <option value="-1" disabled>Select user...</option>
