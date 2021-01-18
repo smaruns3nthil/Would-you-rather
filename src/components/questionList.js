@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
 
 class Question extends Component {
 
@@ -14,14 +15,21 @@ class Question extends Component {
      const text= view ? "View Answer": "View Poll"
     return (
       <div>
-        <ul>
+        <ul style={{listStyleType:'none'}}>
           {questions.map((question)=>(
-            <li key={question.id}>
-              <h1>{users[question.author].name} asks</h1>
-              <img alt='avatar' src={`${users[question.author].avatarURL}`}/>
-              <h3>Would you rather</h3>
-              <p>{question.optionOne.text}</p>
-              <Link to={`/question/${question.id}`} >{text}</Link>
+            <li style= {{marginTop:'10px'}}key={question.id}>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={`${users[question.author].avatarURL}`} />
+                <Card.Body>
+                  <Card.Title style={{color:'orange'}}>{users[question.author].name} asks</Card.Title>
+                  <Card.Text>
+                    <p style={{fontWeight:'bold'}}>Would you Rather?</p>
+                    <p>{question.optionOne.text}</p>
+                    <Link to={`/question/${question.id}`} >{text}</Link>
+                  </Card.Text>
+                  
+                </Card.Body>
+              </Card>
             </li>
           ))}
         </ul>
