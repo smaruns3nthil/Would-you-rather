@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import QuestionList from './questionList'
-
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 
 class Home extends Component {
   state={
@@ -21,11 +22,26 @@ class Home extends Component {
     return this.state.answerView ? filtered : !filtered
     })
     return (
-      <div>
-        <div>
-          <button onClick={()=>this.handleClick(false)}>Unanswered questions</button>
-          <button onClick={()=>this.handleClick(true)}>Answered questions</button>
-        </div>
+      
+      <div style={{marginTop:'10px'}}>
+        <Tabs
+          id="controlled-tab"
+          defaultActiveKey="false"
+          onSelect={(k) => {
+            if(k === 'true')
+            {
+              this.handleClick(true)
+            }
+            else{
+              this.handleClick(false)
+            }
+          }}
+          >
+            <Tab eventKey="false"  title="Unanswered Question">
+            </Tab>
+            <Tab eventKey="true"  title="Answered Question">
+            </Tab>
+        </Tabs>
         <div>
           <QuestionList questions={questionList} view={this.state.answerView}/>
         </div>

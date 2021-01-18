@@ -35,7 +35,7 @@ class App extends Component {
               ):(
                 <Fragment>
                   <Nav/>
-                  <div>
+                  <div style={{textAlign:'center',width:'500px',margin:'0 auto'}}>
                     <Switch>
                       <Route path='/' exact component={Home}/>
                       <Route path='/question/:id'  component={QuestionDetail}/>
