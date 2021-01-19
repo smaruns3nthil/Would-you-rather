@@ -44,27 +44,38 @@ class Add extends Component {
 
     return (
       <div>
-         <h3>Create New Question</h3>
-         <h3>Would you Rather??</h3>
-         <form className='new-tweet' onSubmit={this.handleSubmit}>
-          <textarea
-            placeholder="Option 1"
-            value={optionOne}
-            onChange={this.handleOptionOne}
-          />
-          <br/>OR<br/>
-          <textarea
-            placeholder="Option 2"
-            value={optionTwo}
-            onChange={this.handleOptionTwo}
-          />
-          <br/>
-          <button
-            type='submit'
-            disabled={ optionOne=== '' || optionTwo === ''}>
-              Submit
-          </button>
-        </form>
+        <div style={{height:'300px', border:'1px solid', padding:'15px', marginTop:'100px'}}>
+          <div style={{borderBottom:"1px solid grey", marginBottom:'10px'}}>
+            <h2>Create New Question</h2>
+          </div>
+          <p style={{fontWeight:'bold'}}>Would you Rather?</p>
+          <form className='new-tweet' onSubmit={this.handleSubmit}>
+            <input 
+            style={{width:'95%', marginBottom:'15px'}}
+						name="optionOne"
+						type="text"
+						placeholder="Please Enter your Option One"
+						value={optionOne}
+						onChange={this.handleOptionOne} 
+            />
+            <div style={{marginBottom:'15px'}}>OR</div>
+            <input 
+            style={{width:'95%', marginBottom:'25px'}}
+						name="optionTwo"
+						type="text"
+						placeholder="Please Enter your Option Two"
+						value={optionTwo}
+						onChange={this.handleOptionTwo} 
+            />
+            <br/>
+            <button
+              style={{width:'95%'}}
+              type='submit'
+              disabled={ optionOne=== '' || optionTwo === ''}>
+                Submit
+            </button>
+          </form>
+        </div>
       </div>
     )
   }
