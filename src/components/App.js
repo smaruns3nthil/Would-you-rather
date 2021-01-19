@@ -9,7 +9,7 @@ import Nav from './nav'
 import Leader from './leader'
 import Add from './newQuestion'
 import QuestionDetail from './questionDetail'
-import Err from './error'
+import Err from './Error'
 
 class App extends Component {
 
