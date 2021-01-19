@@ -1,49 +1,58 @@
 import React, { Component } from 'react'
 // import { connect } from 'react-redux'
-
+import ProgressBar from 'react-bootstrap/ProgressBar'
+import './css/login.css'
 
 class Answered extends Component {
   
   render() {
     const {question,authedUser} = this.props
     const total = question.optionOne.votes.length+question.optionTwo.votes.length
-    const percentOne = (question.optionOne.votes.length/total)*100
-    const percentTwo = (question.optionTwo.votes.length/total)*100
+    const percentOne = Math.round(((question.optionOne.votes.length/total)*100)*100)/100
+    const percentTwo = Math.round(((question.optionTwo.votes.length/total)*100)*100)/100
     return (
-      <div>
-        <h5>
+      <div style={{textAlign:'left', marginLeft:'10px'}}>
+        <div>
           Results:
-          <br/>
-          Would you Rather:
-        </h5>
-        <ul>
+        </div>
+        <ul style={{listStyleType:'none'}}>
           <li>
-            <h3>
-              {question.optionOne.text}
-            </h3>
-            <p>
-              {question.optionOne.votes.length} out of {total} votes
-            </p>
-            <h5>
-              Percentage of votes : {percentOne}
-            </h5>
-            <h3>
-              {question.optionOne.votes.includes(authedUser)? 'Your Pick':null}
-            </h3>
+            <div className={`${question.optionOne.votes.includes(authedUser)? 'success':'failure'}`} style={{height:'115px', border:'1px solid', padding:'5px'}}>
+              <div>OptionOne : 
+                {question.optionOne.text}
+              </div>
+              <p>
+                {question.optionOne.votes.length} out of {total} votes
+              </p>
+              <div>
+                {question.optionOne.votes.includes(authedUser)? 
+                <ProgressBar animated variant="success" now={percentOne} label={`${percentOne}%`} />
+                :
+                <ProgressBar animated variant="danger" now={percentOne} label={`${percentOne}%`} />}
+              </div>
+              <div>
+                {question.optionOne.votes.includes(authedUser)? 'Your Pick':null}
+              </div>
+            </div>
           </li>
           <li>
-            <h3>
-              {question.optionTwo.text}
-            </h3>
-            <p>
-              {question.optionTwo.votes.length} out of {total} votes
-            </p>
-            <h5>
-              Percentage of votes : {percentTwo}
-            </h5>
-            <h3>
-              {question.optionTwo.votes.includes(authedUser)? 'Your Pick':null}
-            </h3>
+            <div className={`${question.optionTwo.votes.includes(authedUser)? 'success':'failure'}`} style={{height:'115px', border:'1px solid', padding:'5px', marginTop:'10px'}}>
+              <div> OptionTwo :
+                {question.optionTwo.text}
+              </div>
+              <p>
+                {question.optionTwo.votes.length} out of {total} votes
+              </p>
+              <div>
+                {question.optionTwo.votes.includes(authedUser)? 
+                <ProgressBar animated now={percentTwo} variant="success" label={`${percentTwo}%`} />
+                :
+                <ProgressBar animated now={percentTwo} variant="danger" label={`${percentTwo}%`} />}
+              </div>
+              <div>
+                {question.optionTwo.votes.includes(authedUser)? 'Your Pick':null}
+              </div>
+            </div>
           </li>
         </ul>
       </div>

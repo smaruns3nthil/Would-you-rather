@@ -25,8 +25,8 @@ class Unanswered extends Component {
   render() {
     const {question}=this.props
     return (
-      <div>
-        <h3>Would you Rather?</h3>
+      <div style={{textAlign:'left', marginLeft:'20px'}}>
+        <h3 >Would you Rather?</h3>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>
@@ -36,7 +36,7 @@ class Unanswered extends Component {
                 checked={this.state.selectedOption === 'optionOne'}
                 onChange={this.handleChange}
               />
-              {question.optionOne.text}
+              <div style={{paddingLeft:'10px', display:'inline', verticalAlign:'top'}}>{question.optionOne.text}</div>
             </label>
           </div>
           <div>
@@ -47,10 +47,11 @@ class Unanswered extends Component {
                 checked={this.state.selectedOption === 'optionTwo'}
                 onChange={this.handleChange}
               />
-              {question.optionTwo.text}
+              <div style={{paddingLeft:'10px', display:'inline', verticalAlign:'top'}}>{question.optionTwo.text}</div>
             </label>
           </div>
           <button 
+          style= {{width:'95%', marginTop:'10px'}}
           type="submit"
           disabled ={this.state.selectedOption === ''}
           >
