@@ -29,7 +29,7 @@ class Navb extends Component {
               <Nav.Link eventKey='/add' as={Link} to="/add">New Question</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey='/leader' as={Link} to="/leader">Leaderboard</Nav.Link>
+              <Nav.Link eventKey='/leader' as={Link} to="/leaderboard">Leaderboard</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link style= {{marginLeft:'700px'}}eventKey='/logout' onSelect={this.handleClick}>

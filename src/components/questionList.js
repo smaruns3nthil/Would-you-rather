@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Card from 'react-bootstrap/Card'
+
 
 class Question extends Component {
 
-  handleClick = (e)=>{
-    e.preventDefault();
-    // Link to the Question
-  } 
   
   render() {
      const{questions,view,users} = this.props

@@ -31,7 +31,7 @@ class Login extends Component {
     const selected = userId ? userId: -1
     return (
       <Fragment>
-        <Container className="p-3">
+        <Container className="login-container">
           <Jumbotron style={{  height: '50vh', marginTop:'100px'}}>
             <h1 className="header">Would You Rather !!!</h1>
             <h3 className='header'>Please Select User Name to Login</h3>

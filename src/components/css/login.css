@@ -1,16 +1,8 @@
 .header {
     text-align: center;
     margin-top: 50px;
-    /* color:white; */
   }
-/* .bsPrefix {
-    background-color: rgb(236, 78, 15);
-} */
 .success{
 background-color: rgb(31, 165, 228);
 color:white;
 }
-/* .failure{
-background-color: rgb(83, 70, 66);  
-color:white;
-} */
