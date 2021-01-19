@@ -18,18 +18,19 @@ class Question extends Component {
         <ul style={{listStyleType:'none'}}>
           {questions.map((question)=>(
             <li style= {{marginTop:'10px'}}key={question.id}>
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={`${users[question.author].avatarURL}`} />
-                <Card.Body>
-                  <Card.Title style={{color:'orange'}}>{users[question.author].name} asks</Card.Title>
-                  <Card.Text>
+              <div style={{height:'200px', border:'1px solid', padding:'15px'}}>
+                <div style={{fontWeight:'bold', borderBottom:'1px solid grey', paddingBottom:'5px'}}>
+                  {users[question.author].name} asks
+                </div>
+                <div style={{ display:'inline-block',borderRight: '1px solid grey', paddingTop:'35px', width:'25%', verticalAlign:'top'}}>
+                  <img alt='avatar' src={`${users[question.author].avatarURL}`} style={{height:'100px',width:'100px', paddingRight:'10px', borderRadius:'35px'}}/>
+                </div>
+                <div style={{ display:'inline-block', paddingTop:'35px', paddingBottom:'35px', width:'75%', verticalAlign:'top'}}>
                     <p style={{fontWeight:'bold'}}>Would you Rather?</p>
                     <p>{question.optionOne.text}</p>
                     <Link to={`/question/${question.id}`} >{text}</Link>
-                  </Card.Text>
-                  
-                </Card.Body>
-              </Card>
+                </div>
+              </div>
             </li>
           ))}
         </ul>
